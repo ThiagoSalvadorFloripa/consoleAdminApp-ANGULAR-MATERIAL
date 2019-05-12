@@ -8,18 +8,23 @@ import { NgModule } from '@angular/core';
 import { RegisterUserComponent } from './user/register-user/register-user.component';
 import { RegisterRaffleComponent } from './raffle/register-raffle/register-raffle.component';
 import { ConsoleAdminNavComponent } from './console-admin-nav/console-admin-nav.component';
+import { LoginComponent } from './securityLogin/login/login.component';
 
 
 const routes: Routes = [
-  {path: 'login', component: ListUserComponent},
-  {path: 'users', component: ListUserComponent},
-  {path: 'user/register', component: RegisterUserComponent},
-  {path: 'winner', component: ListWinnerComponent},
-  {path: 'played', component: ListPlayedComponent},
-  {path: 'raffle', component: ListRaffleComponent},
-  {path: 'raffle/register', component: RegisterRaffleComponent},
-  //{path: '**', component: NotFoundComponent}
-
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
+  //{path: '**', component: NotFoundComponent},
+  {path: 'menu', component: ConsoleAdminNavComponent,
+  children: [
+    {path: 'users', component: ListUserComponent},
+    {path: 'user/register', component: RegisterUserComponent},
+    {path: 'winner', component: ListWinnerComponent},
+    {path: 'played', component: ListPlayedComponent},
+    {path: 'raffle', component: ListRaffleComponent},
+    {path: 'raffle/register', component: RegisterRaffleComponent}
+    ]
+  }
 ];
 
 @NgModule({

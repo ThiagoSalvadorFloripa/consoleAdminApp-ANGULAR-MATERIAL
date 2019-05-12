@@ -1,3 +1,4 @@
+import { UserService } from './user/register-user/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,8 @@ import { ListWinnerComponent } from './user/list-winner/list-winner.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './securityLogin/login/login.component';
 import {FormsModule} from '@angular/forms';
-
+import { AuthGuardService } from './securityLogin/guards/auth-guard.service';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import {FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
     MatSidenavModule,
@@ -54,7 +57,7 @@ import {FormsModule} from '@angular/forms';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

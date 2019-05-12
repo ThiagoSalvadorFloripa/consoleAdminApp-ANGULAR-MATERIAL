@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   login() : void {
 
-     this.router.navigate(["user"]);
+     this.router.navigate(["menu"]);
 
   }
 

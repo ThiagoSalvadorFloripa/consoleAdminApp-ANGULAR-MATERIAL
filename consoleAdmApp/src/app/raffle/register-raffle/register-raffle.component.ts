@@ -1,3 +1,5 @@
+import { Raffle } from './raffle.model';
+import { RaffleService } from './raffle.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterRaffleComponent implements OnInit {
 
-  constructor() { }
+  raffle: Raffle
+  constructor(private raffleService:RaffleService) { }
 
   ngOnInit() {
+    this.raffle = this.raffleService.getNewRaffle()
+
+  }
+
+
+
+  salve(){
+
+  }
+
+  clear(){
+
+  }
+
+  return(){
+
+  }
+  onclick(){
+
   }
 
 }

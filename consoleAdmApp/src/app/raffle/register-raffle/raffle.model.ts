@@ -5,6 +5,6 @@ export class Raffle{
   constructor(public id: string,
               public amount: string,
               public number: string,
-              public current: string,
+              public current: boolean,
               public played: Played){}
 }

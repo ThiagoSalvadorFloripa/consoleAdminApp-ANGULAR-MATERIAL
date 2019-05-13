@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-list-played',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPlayedComponent implements OnInit {
 
-  constructor() { }
+  searchPlayed: FormGroup
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.searchPlayed = this.fb.group({
+      descricao: this.fb.control(''),
+      status: this.fb.control('')
+    });
   }
 
 }

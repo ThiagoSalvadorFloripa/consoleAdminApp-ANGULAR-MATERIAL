@@ -1,3 +1,48 @@
-<p>
-  register-raffle works!
-</p>
+<mat-card class="menutitle">
+  <span class="title"><b>Register Raffle</b></span>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Amount" [(ngModel)]="raffle.amount">
+          </mat-form-field>
+          </td>
+          <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Number raffle" [(ngModel)]="raffle.number" type="number">
+          </mat-form-field>
+          </td>
+
+          <!--
+          <mat-form-field class="input-medium">
+           <input currencyMask [(ngModel)]="raffle.amount" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>
+          </mat-form-field>
+
+          -->
+          <section class="input-medium">
+           <mat-checkbox [checked]="raffle.current" (change)="onclick()" color="primary">Current</mat-checkbox>
+          </section>
+
+        </tr></table>
+
+      <mat-card-actions>
+        <div id= "botao">
+            <button mat-raised-button (click)="salve()" color="primary">
+              <mat-icon>save</mat-icon> Salve
+            </button>
+            <button mat-stroked-button (click)="return()" color="primary">
+              <mat-icon>arrow_back</mat-icon> Return
+            </button>
+            <button mat-stroked-button (click)="clear()" color="primary">
+              <mat-icon>clear</mat-icon> Clear
+            </button>
+        </div>
+
+        </mat-card-actions>
+
+  </mat-card-content>
+
+</mat-card>

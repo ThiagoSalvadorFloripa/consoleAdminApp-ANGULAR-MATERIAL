@@ -1,3 +1,4 @@
+import { RaffleService } from './raffle/register-raffle/raffle.service';
 import { UserService } from './user/register-user/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsoleAdminNavComponent } from './console-admin-nav/console-admin-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatDialogModule, MatTableModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatInputModule, MatFormFieldModule, MatMenuModule } from '@angular/material';
+import { MatCheckboxModule, MatDialogModule, MatTableModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatInputModule, MatFormFieldModule, MatMenuModule } from '@angular/material';
 
 import { ConsoleAdminDashboardComponent } from './console-admin-dashboard/console-admin-dashboard.component';
 import { RegisterUserComponent } from './user/register-user/register-user.component';
@@ -20,6 +21,9 @@ import { LoginComponent } from './securityLogin/login/login.component';
 import {FormsModule} from '@angular/forms';
 import { AuthGuardService } from './securityLogin/guards/auth-guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { NgxCurrencyModule } from "ngx-currency";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
     ListWinnerComponent,
     NotFoundComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
+    MatCheckboxModule,
+    CurrencyMaskModule,
     MatSidenavModule,
     MatIconModule,
     MatInputModule,
@@ -55,9 +61,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatGridListModule,
     MatTableModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxCurrencyModule
   ],
-  providers: [UserService],
+  providers: [UserService, RaffleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-list-raffle',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRaffleComponent implements OnInit {
 
-  constructor() { }
+  searchRaffle: FormGroup
+  constructor(private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.searchRaffle = this.fb.group({
+      descricao: this.fb.control(''),
+      status: this.fb.control('')
+  })
+}
+  newRaffle(){
+    this.router.navigate(['menu/raffle/register'])
   }
-
 }

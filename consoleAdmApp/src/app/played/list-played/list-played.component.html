@@ -1,3 +1,22 @@
-<p>
-  list-played works!
-</p>
+<mat-card class="menutitle">
+  <span class="title"><b>List played</b></span>
+</mat-card>
+<mat-card>
+
+
+<mat-card-content>
+
+    <div class="row">
+    <form [formGroup]="searchPlayed" class="full-width">
+        <div class="big">
+          <mat-form-field>
+            <input matInput formControlName="descricao" (keyup)="null" placeholder="Search id/name"
+              class="uppercase">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

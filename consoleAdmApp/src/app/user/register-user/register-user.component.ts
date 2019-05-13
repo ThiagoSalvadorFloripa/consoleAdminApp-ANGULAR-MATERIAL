@@ -16,5 +16,17 @@ export class RegisterUserComponent implements OnInit {
     this.user = this.userService.getNewUser()
   }
 
+  salve(){
+
+  }
+
+  clear(){
+
+  }
+
+  return(){
+
+  }
+
 
 }

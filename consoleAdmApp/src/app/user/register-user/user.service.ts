@@ -13,7 +13,7 @@ export class UserService {
 
 
   getNewUser(): User{
-    let raffle = new Raffle("","","","",null)
+    let raffle = new Raffle("","","",false,null)
     let plead = new Played("","","",null,raffle)
     this.user = new User ("","","","","",null,"","",plead)
     return this.user

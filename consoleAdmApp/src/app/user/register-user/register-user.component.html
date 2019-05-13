@@ -1,31 +1,62 @@
+<mat-card class="menutitle">
+  <span class="title"><b>Register User</b></span>
+</mat-card>
 <mat-card>
   <mat-card-content>
-    <div>
-      <div class="row">
-        <div class="col-md-6">
-          <mat-form-field>
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td>
+          <mat-form-field class="example-full-width">
             <input matInput placeholder="Name" [(ngModel)]="user.name">
           </mat-form-field>
-        </div>
-
-        <div class="col-md-6">
-          <mat-form-field>
+          </td>
+          <td>
+          <mat-form-field class="example-full-width">
             <input matInput placeholder="Email" [(ngModel)]="user.email" type="email">
           </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="Gold" [(ngModel)]="user.gold" type="number">
-          </mat-form-field>
+          </td>
+        </tr></table>
+
+      <div class="row">
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="password" [(ngModel)]="user.password">
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Repeat password" [(ngModel)]="user.repeat_password">
+            </mat-form-field>
+          </td>
+        </tr></table>
+      </div>
+
+      <div class="row">
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td>
+            <mat-form-field class="oneColl-full-width">
+                <input matInput placeholder="Gold" [(ngModel)]="user.gold" type="number">
+            </mat-form-field>
+            </td>
+        </tr></table>
+      </div>
+
+      <mat-card-actions>
+        <div id= "botao">
+            <button mat-raised-button (click)="salve()" color="primary">
+              <mat-icon>save</mat-icon> Salve
+            </button>
+            <button mat-stroked-button (click)="return()" color="primary">
+              <mat-icon>arrow_back</mat-icon> Return
+            </button>
+            <button mat-stroked-button (click)="clear()" color="primary">
+              <mat-icon>clear</mat-icon> Clear
+            </button>
         </div>
 
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="password" [(ngModel)]="user.password">
-          </mat-form-field>
-        </div>v
-      </div>
-    </div>
+        </mat-card-actions>
+
   </mat-card-content>
 
 </mat-card>

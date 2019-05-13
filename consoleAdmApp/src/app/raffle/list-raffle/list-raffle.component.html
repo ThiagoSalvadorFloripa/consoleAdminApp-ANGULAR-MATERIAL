@@ -1,3 +1,29 @@
-<p>
-  list-raffle works!
-</p>
+<mat-card class="menutitle">
+  <span class="title"><b>List raffle</b></span>
+</mat-card>
+<mat-card>
+
+
+<mat-card-content>
+  <div class="row">
+      <div class="big">
+        <button type="button" mat-raised-button (click)="newRaffle()" color="primary">
+          <mat-icon>add_circle_outline</mat-icon> New
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+    <form [formGroup]="searchRaffle" class="full-width">
+        <div class="big">
+          <mat-form-field>
+            <input matInput formControlName="descricao" (keyup)="null" placeholder="Search by id/numberRaffle"
+              class="uppercase">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

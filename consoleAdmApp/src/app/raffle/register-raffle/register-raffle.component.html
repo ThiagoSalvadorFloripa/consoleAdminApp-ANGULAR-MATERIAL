@@ -2,13 +2,18 @@
   <span class="title"><b>Register Raffle</b></span>
 </mat-card>
 
+
 <mat-card>
   <mat-card-content>
         <table class="example-full-width" cellspacing="0"><tr>
           <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Amount" [(ngModel)]="raffle.amount">
-          </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+
+              <input matInput [(ngModel)]="raffle.amount" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align:'left' }"
+                            placeholder="teste">
+
+            </mat-form-field>
           </td>
           <td>
           <mat-form-field class="example-full-width">
@@ -16,12 +21,6 @@
           </mat-form-field>
           </td>
 
-          <!--
-          <mat-form-field class="input-medium">
-           <input currencyMask [(ngModel)]="raffle.amount" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>
-          </mat-form-field>
-
-          -->
           <section class="input-medium">
            <mat-checkbox [checked]="raffle.current" (change)="onclick()" color="primary">Current</mat-checkbox>
           </section>

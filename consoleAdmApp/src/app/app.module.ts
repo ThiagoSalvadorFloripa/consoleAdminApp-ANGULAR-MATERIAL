@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsoleAdminNavComponent } from './console-admin-nav/console-admin-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatCheckboxModule, MatDialogModule, MatTableModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatInputModule, MatFormFieldModule, MatMenuModule } from '@angular/material';
+import { MatCheckboxModule, MatSortModule, MatDialogModule, MatTableModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatInputModule, MatFormFieldModule, MatMenuModule } from '@angular/material';
+import { MatNativeDateModule, MatPaginatorModule } from '@angular/material';
 
 import { ConsoleAdminDashboardComponent } from './console-admin-dashboard/console-admin-dashboard.component';
 import { RegisterUserComponent } from './user/register-user/register-user.component';
@@ -22,7 +23,6 @@ import {FormsModule} from '@angular/forms';
 import { AuthGuardService } from './securityLogin/guards/auth-guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { NgxCurrencyModule } from "ngx-currency";
 
 @NgModule({
   declarations: [
@@ -47,10 +47,12 @@ import { NgxCurrencyModule } from "ngx-currency";
     MatToolbarModule,
     ReactiveFormsModule,
     FormsModule,
+    MatNativeDateModule,
     MatButtonModule,
+    MatPaginatorModule,
     MatCheckboxModule,
-    CurrencyMaskModule,
     MatSidenavModule,
+    CurrencyMaskModule,
     MatIconModule,
     MatInputModule,
     MatDialogModule,
@@ -59,10 +61,10 @@ import { NgxCurrencyModule } from "ngx-currency";
     MatProgressSpinnerModule,
     MatListModule,
     MatGridListModule,
+    MatSortModule,
     MatTableModule,
     MatCardModule,
     MatMenuModule,
-    NgxCurrencyModule
   ],
   providers: [UserService, RaffleService],
   bootstrap: [AppComponent]

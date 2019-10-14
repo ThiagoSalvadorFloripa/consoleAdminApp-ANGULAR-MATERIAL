@@ -1,5 +1,6 @@
 import { RaffleService } from './raffle/register-raffle/raffle.service';
 import { UserService } from './user/register-user/user.service';
+import { PlayedService } from './played/list-played/played.service'
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import {FormsModule} from '@angular/forms';
 import { AuthGuardService } from './securityLogin/guards/auth-guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -66,7 +69,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     MatCardModule,
     MatMenuModule,
   ],
-  providers: [UserService, RaffleService],
+  providers: [UserService, PlayedService, RaffleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

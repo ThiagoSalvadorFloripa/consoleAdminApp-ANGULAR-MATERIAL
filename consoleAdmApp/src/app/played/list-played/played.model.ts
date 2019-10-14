@@ -1,11 +1,10 @@
-import { User } from 'src/app/user/register-user/user.model';
-import { Raffle } from 'src/app/raffle/register-raffle/raffle.model';
 
-export class Played{
-
-  constructor(public id: string,
-              public number: string,
-              public timer: string,
-              public user: User,
-              public raffle: Raffle){}
+export interface Played{
+  id: string;
+  number: string;
+  time: string;
+  user_name: string;
+  user_id: string;
+  raffle_number: string;
 }
+

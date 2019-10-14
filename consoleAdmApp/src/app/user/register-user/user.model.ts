@@ -1,4 +1,3 @@
-import { Played } from 'src/app/played/list-played/played.model';
 
 export class User{
 
@@ -10,5 +9,5 @@ export class User{
               public gold: BigInteger,
               public token_facebook: string,
 	            public hash: string,
-	            public played: Played){}
+	            ){}
 }

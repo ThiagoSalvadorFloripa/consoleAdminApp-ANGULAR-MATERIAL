@@ -6,6 +6,6 @@ export class UserWinner{
               public numberPlayed: string,
               public numberRaffle: string,
               public current: string,
-              public timer: string,
+              public time: string,
 	            public amount: string){}
 }

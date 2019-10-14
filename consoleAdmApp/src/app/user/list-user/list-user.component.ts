@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder} from '@angular/forms';
+import { UserService } from '../register-user/user.service';
+import { UserDto } from './userDTO.model';
 import { User } from '../register-user/user.model';
-import { MatTableDataSource } from '@angular/material';
-
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-list-user',
@@ -12,31 +13,41 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class ListUserComponent implements OnInit {
 
-
   searchUser: FormGroup
 
-  constructor(private router: Router, private fb: FormBuilder) { }
-
-  users: User[] = <User[]>{};
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { }
+  user: User;
+  users: UserDto[];
+  dataSourceUsers = new MatTableDataSource(this.users);
+  
   displayedColumns: string[] = ['id', 'name', 'email', 'gold']
-  dataSourceUsers = new MatTableDataSource<User>(this.users);
-
 
   ngOnInit() {
+    this.user = this.userService.getNewUser();
+    this.getListUserDTO();
     this.searchUser = this.fb.group({
       descricao: this.fb.control(''),
       status: this.fb.control('')
     });
-
-    this.dataSourceUsers = new MatTableDataSource<User>(this.users);
   }
 
   novo(){
     this.router.navigate(['menu/user/register'])
   }
 
-  getUsers(){
+  getListUserDTO(){
+    this.userService.findListUser()
+      .subscribe(data =>{
+       this.users = data
+       this.dataSourceUsers =  new MatTableDataSource(this.users);
+    },
+    erro => {
+      console.log(erro);
+    });
+  }
 
+  applyFilter(filterValue: string) {
+    this.dataSourceUsers.filter = filterValue.trim().toLowerCase();
   }
 
 }

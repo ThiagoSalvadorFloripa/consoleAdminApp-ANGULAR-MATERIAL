@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from './user.model';
-import { Played } from 'src/app/played/list-played/played.model';
-import { Raffle } from 'src/app/raffle/register-raffle/raffle.model';
+import { API_CONFIG } from "../../config/api.config";
+import { UserDto } from '../list-user/userDTO.model';
+import { Observable } from 'rxjs';
+import { User } from './user.model'
 
 @Injectable()
 export class UserService {
-  constructor() { }
-  baseUrl: string = 'http://localhost:8080/user-portal/users';
 
-  user: User
+  user : User;
 
-
+  constructor(public http: HttpClient) { }
+  
+  findListUser(): Observable< UserDto[]>{
+    return this.http.get<UserDto[]>(`${API_CONFIG.baseUrl}/user/listUsers`);
+  }
+  
   getNewUser(): User{
-    let raffle = new Raffle("","","",false,null)
-    let plead = new Played("","","",null,raffle)
-    this.user = new User ("","","","","",null,"","",plead)
+    this.user = new User("","","","","",null,"","")
     return this.user
   }
   /*getUsers() {

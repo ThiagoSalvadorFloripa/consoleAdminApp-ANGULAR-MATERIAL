@@ -1,20 +1,24 @@
 import { Raffle } from 'src/app/raffle/register-raffle/raffle.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Played } from 'src/app/played/list-played/played.model';
-
+import { API_CONFIG } from "../../config/api.config";
+import { Observable } from 'rxjs';
 @Injectable()
 export class RaffleService {
-  constructor() { }
-  baseUrl: string = 'http://localhost:8080/user-portal/users';
+
+  constructor(public http: HttpClient) { }  
 
   raffle:Raffle
 
-  getNewRaffle(): Raffle{
-    let plead = new Played ("","","",null,null)
-    this.raffle = new Raffle("","","",false,plead)
-    return this.raffle
+  findListRaffle(): Observable< Raffle[]>{
+    return this.http.get<Raffle[]>(`${API_CONFIG.baseUrl}/raffle`);
   }
+
+  // getNewRaffle(): Raffle{
+  //   // let played = new Played ("","","","","","")
+  //   // this.raffle = new Raffle("","","",false,played)
+  //   // return this.raffle
+  // }
 
   /*getUsers() {
     return this.http.get<User[]>(this.baseUrl);

@@ -13,7 +13,7 @@ export class RegisterRaffleComponent implements OnInit {
   constructor(private raffleService:RaffleService) { }
 
   ngOnInit() {
-    this.raffle = this.raffleService.getNewRaffle()
+    //this.raffle = this.raffleService.getNewRaffle()
 
   }
 

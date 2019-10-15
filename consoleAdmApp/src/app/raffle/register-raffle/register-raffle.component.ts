@@ -10,17 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterRaffleComponent implements OnInit {
 
   raffle: Raffle
-  constructor(private raffleService:RaffleService) { }
+  constructor(private raffleService: RaffleService) { }
 
   ngOnInit() {
-    //this.raffle = this.raffleService.getNewRaffle()
+    this.raffle = this.raffleService.getNewRaffle()
 
   }
 
-
-
-  salve(){
-
+  save(){
+    this.raffleService.registerRaffle(this.raffle).subscribe(id => {
+      console.log(this.raffle)
+      console.log(id)
+      alert ("Saved successfully")
+    },
+    error =>
+    console.log(error)
+    )
+    this.raffleService.getNewRaffle();
   }
 
   clear(){
@@ -31,7 +37,7 @@ export class RegisterRaffleComponent implements OnInit {
 
   }
   onclick(){
-
+    this.raffle.current = 1;
   }
 
 }

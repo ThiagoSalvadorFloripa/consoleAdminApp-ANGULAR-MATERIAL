@@ -7,29 +7,27 @@
   <mat-card-content>
         <table class="example-full-width" cellspacing="0"><tr>
           <td>
-
-            <mat-form-field class="example-full-width">
-
+            <mat-form-field class="example-full-width" required>
               <input matInput [(ngModel)]="raffle.amount" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align:'left' }"
-                            placeholder="teste">
-
+                            placeholder="Raffle Value*">
             </mat-form-field>
           </td>
+
           <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Number raffle" [(ngModel)]="raffle.number" type="number">
+          <mat-form-field class="example-full-width" required>
+            <input matInput placeholder="Number raffle*" [(ngModel)]="raffle.number" type="text">
           </mat-form-field>
           </td>
 
-          <section class="input-medium">
-           <mat-checkbox [checked]="raffle.current" (change)="onclick()" color="primary">Current</mat-checkbox>
+          <section class="input-medium" required>
+           <mat-checkbox [checked]="raffle.current" (change)="onclick()" color="primary">Current*</mat-checkbox>
           </section>
-
+          
         </tr></table>
 
       <mat-card-actions>
         <div id= "botao">
-            <button mat-raised-button (click)="salve()" color="primary">
+            <button mat-raised-button (click)="save()" color="primary">
               <mat-icon>save</mat-icon> Salve
             </button>
             <button mat-stroked-button (click)="return()" color="primary">

@@ -14,11 +14,14 @@ export class RaffleService {
     return this.http.get<Raffle[]>(`${API_CONFIG.baseUrl}/raffle`);
   }
 
-  // getNewRaffle(): Raffle{
-  //   // let played = new Played ("","","","","","")
-  //   // this.raffle = new Raffle("","","",false,played)
-  //   // return this.raffle
-  // }
+  getNewRaffle(): Raffle{
+    this.raffle = new Raffle("","","",0)
+    return this.raffle
+  }
+
+  registerRaffle(raffle: Raffle):Observable<any>{
+    return this.http.post<any>(`${API_CONFIG.baseUrl}/raffle`,raffle);
+  }
 
   /*getUsers() {
     return this.http.get<User[]>(this.baseUrl);

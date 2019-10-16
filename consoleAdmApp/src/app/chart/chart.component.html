@@ -1,0 +1,30 @@
+<mat-card >
+    <div style="text-align: center">
+  
+          <button type="button"  class="button-big-center" mat-raised-button (click)="newRaffle()" color="primary">
+            <mat-icon class="icon-big">attach_money</mat-icon> AMOUNT PER WEEK R$500.00
+          </button>
+       
+    </div>
+
+</mat-card>
+
+
+<mat-card>
+    <div>
+        <div>
+          <div style="display: block">
+            <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+            </canvas>
+          </div>
+         
+        </div>
+    </div>
+
+</mat-card>

@@ -11,13 +11,14 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   ngOnInit() {
+
   }
 
   login() : void {
-
-     this.router.navigate(["menu"]);
-
+     this.router.navigate(["menu/chart"]);
   }
+
+
 
 
 

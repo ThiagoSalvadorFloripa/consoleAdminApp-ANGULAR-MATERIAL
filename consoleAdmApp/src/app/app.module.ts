@@ -25,6 +25,8 @@ import { AuthGuardService } from './securityLogin/guards/auth-guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,11 @@ import { HttpClientModule } from '@angular/common/http';
 
     ListWinnerComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    ChartComponent
   ],
   imports: [
+     ChartsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -69,7 +73,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatMenuModule,
   ],
-  providers: [UserService, PlayedService, RaffleService],
+  providers: [UserService, PlayedService, RaffleService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

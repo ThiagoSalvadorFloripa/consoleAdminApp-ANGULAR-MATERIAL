@@ -9,6 +9,9 @@ import { RegisterUserComponent } from './user/register-user/register-user.compon
 import { RegisterRaffleComponent } from './raffle/register-raffle/register-raffle.component';
 import { ConsoleAdminNavComponent } from './console-admin-nav/console-admin-nav.component';
 import { LoginComponent } from './securityLogin/login/login.component';
+import { ChartComponent } from './chart/chart.component';
+import { AuthGuardService } from './securityLogin/guards/auth-guard.service';
+
 
 
 const routes: Routes = [
@@ -17,6 +20,7 @@ const routes: Routes = [
   //{path: '**', component: NotFoundComponent},
   {path: 'menu', component: ConsoleAdminNavComponent,
   children: [
+    {path: 'chart', component: ChartComponent},
     {path: 'users', component: ListUserComponent},
     {path: 'user/register', component: RegisterUserComponent},
     {path: 'winner', component: ListWinnerComponent},

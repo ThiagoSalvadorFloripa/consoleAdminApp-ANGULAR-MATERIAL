@@ -27,6 +27,13 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
+import { HttpClient } from '@angular/common/http'
+
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -72,6 +79,14 @@ import { ChartComponent } from './chart/chart.component';
     MatTableModule,
     MatCardModule,
     MatMenuModule,
+
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    })
   ],
   providers: [UserService, PlayedService, RaffleService, AuthGuardService],
   bootstrap: [AppComponent]
